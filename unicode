@@ -1,0 +1,50 @@
+public class UnicodeRemover {
+
+    public static void main(String[] args) {
+        String input = "This is a sample text with some unicode characters: ☀ hello ☁ mark ☂ umbrella ♦ diamond";
+        char[] unicodeCharsToRemove = {'☀', '☁', '☂', '♦'};
+        
+        String result = removeUnicodeCharacters(input, unicodeCharsToRemove);
+        System.out.println(result);
+    }
+
+    public static String removeUnicodeCharacters(String input, char[] unicodeCharsToRemove) {
+        if (input == null || unicodeCharsToRemove == null) {
+            return input;
+        }
+        
+        StringBuilder regexBuilder = new StringBuilder();
+        for (char c : unicodeCharsToRemove) {
+            regexBuilder.append(c);
+        }
+        
+        String regex = "[" + regexBuilder.toString() + "]";
+        return input.replaceAll(regex, "");
+    }
+}
+
+
+public class UnicodeRemover {
+
+    public static void main(String[] args) {
+        String input = "This is a sample text with some unicode characters: ☀ ☁ ☂ ♦";
+        char[] unicodeCharsToRemove = {'\u2600', '\u2601', '\u2602', '\u2666'};
+        
+        String result = removeUnicodeCharacters(input, unicodeCharsToRemove);
+        System.out.println(result);
+    }
+
+    public static String removeUnicodeCharacters(String input, char[] unicodeCharsToRemove) {
+        if (input == null || unicodeCharsToRemove == null) {
+            return input;
+        }
+        
+        StringBuilder regexBuilder = new StringBuilder();
+        for (char c : unicodeCharsToRemove) {
+            regexBuilder.append(c);
+        }
+        
+        String regex = "[" + regexBuilder.toString() + "]";
+        return input.replaceAll(regex, "");
+    }
+}
