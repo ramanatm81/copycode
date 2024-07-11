@@ -1,0 +1,6 @@
+SELECT sid, serial#, username, status, program, module, machine, logon_time, last_call_et " +
+                     "FROM v$session " +
+                     "WHERE status = 'INACTIVE' " +
+                     "AND type = 'USER' " +
+                     "AND program LIKE 'JDBC Thin Client%' " +
+                     "ORDER BY logon_time DESC";
